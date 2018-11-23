@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <style>
+  video {
+    width: 1280px;
+    height: 960px;
+  }
+  </style>
+</head>
+<body>
+  <video id="video" controls autoplay></video>
+  <script>
+    let video = document.getElementById('video');
+    let hls = new Hls({
+      maxBufferHole: 5,
+      maxSeekHole: 10,
+    });
+    hls.loadSource('https://raw.githubusercontent.com/jacksirens/error-video/master/error-video.m3u8?1');
+    hls.attachMedia(video);
+  </script>
+</body>
+</html>
